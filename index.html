@@ -17,6 +17,208 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.28;ba
 .compose-grid{display:grid;grid-template-columns:118px minmax(0,1fr) 118px;gap:16px;align-items:end}.animal{display:flex;align-items:center;justify-content:center;min-height:120px}.animal svg{width:112px;height:112px;image-rendering:pixelated;filter:drop-shadow(0 8px 8px #0008)}.leopard{animation:prowl 3.2s ease-in-out infinite}.eagle{animation:float 2.8s ease-in-out infinite;transform-origin:50% 60%}@keyframes float{50%{transform:translateY(-7px) rotate(-2deg)}}@keyframes prowl{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 textarea{width:100%;min-height:128px;resize:vertical;background:#111815;border:1px solid #435449;border-radius:16px;padding:16px;color:var(--text);font:inherit;line-height:1.6;outline:none}textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #a9d6a022}textarea::placeholder{color:#7f9184}.composer-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}.hint{font-size:12px;color:var(--muted);line-height:1.5}.send{border:0;border-radius:13px;padding:12px 18px;background:linear-gradient(135deg,#d8edc9,#a8d19d);color:#172118;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 5px 18px #a9d6a033;transition:transform .18s,filter .18s}.send:hover{transform:translateY(-2px);filter:brightness(1.06)}.send:disabled{opacity:.55;cursor:wait;transform:none}
 .notice{min-height:22px;margin-top:10px;font-size:13px;color:var(--gold)}.wall-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:34px 0 16px}.wall-head h2{margin:0;font-size:24px}.count{font-size:12px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding-bottom:70px}.wish{background:linear-gradient(145deg,#222c25,#19211c);border:1px solid #344239;border-radius:18px;padding:18px;min-height:145px;position:relative;overflow:hidden;animation:appear .45s ease both}.wish:before{content:"✦";position:absolute;right:15px;top:9px;color:#e8d58b66;font-size:18px}.wish p{margin:0 0 20px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;font-size:15px}.wish-foot{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:11px}.heart{border:1px solid #536253;background:#18211c;color:#f4b4bd;border-radius:20px;padding:5px 9px;cursor:pointer;font-size:14px;transition:transform .2s}.heart.pop{animation:heartpop .48s ease}@keyframes heartpop{35%{transform:scale(1.5)}70%{transform:scale(.88)}100%{transform:scale(1)}}@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:35px 10px;border:1px dashed #455449;border-radius:18px}.footer{text-align:center;color:#849187;font-size:12px;padding:10px 0 34px;line-height:1.7}
+
+/* Floating space cats and the extra help/gallery sections */
+.space-cat{position:fixed;z-index:0;pointer-events:none;font-size:clamp(22px,3vw,34px);filter:drop-shadow(0 0 12px #d8f1d155);opacity:.72;animation:catDrift 18s ease-in-out infinite}
+.space-cat.one{top:20%;left:2%;animation-delay:-3s}.space-cat.two{top:58%;right:2%;animation-delay:-10s;font-size:27px}.space-cat.three{top:82%;left:8%;animation-delay:-6s;font-size:22px}
+@keyframes catDrift{0%,100%{transform:translate3d(0,0,0) rotate(-8deg)}25%{transform:translate3d(18px,-24px,0) rotate(7deg)}50%{transform:translate3d(-5px,-42px,0) rotate(-4deg)}75%{transform:translate3d(-18px,-18px,0) rotate(8deg)}}
+.wrap{z-index:1}.heart{min-width:58px}.heart.liked{background:#492a36;border-color:#c66a83;color:#ffb5c7;box-shadow:0 0 16px #ff8eaa35}.heart .like-count{font-size:11px;margin-left:3px;color:inherit}
+.help-card{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:20px;border:1px solid #8a7543;background:linear-gradient(130deg,#2b2a20,#1b211c);border-radius:22px;padding:22px;margin:8px 0 24px;box-shadow:0 12px 38px #0004}.help-number{font-size:clamp(44px,8vw,72px);font-weight:900;letter-spacing:-.06em;color:#f1d27a;text-align:center;text-shadow:0 0 24px #f1d27a55}.help-copy h2{margin:0 0 8px;font-size:20px}.help-copy p{margin:0;color:#d2d9cf;line-height:1.65;font-size:14px}.help-copy a{display:inline-block;margin-top:10px;color:#f1d27a;font-weight:700;text-underline-offset:3px}.gallery{margin:24px 0 12px}.gallery h2{font-size:20px;margin:0 0 12px}.gallery-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.gallery-slot{aspect-ratio:1/1;display:grid;place-items:center;text-align:center;padding:10px;border:1px dashed #526454;border-radius:16px;background:#18211c;color:#9eac9f;font-size:12px}.gallery-slot span{display:block;font-size:22px;margin-bottom:6px;color:#d8c17b}
+@media(max-width:600px){.help-card{grid-template-columns:1fr;text-align:center;gap:6px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-slot:last-child{grid-column:1/-1}}
+@media(max-width:700px){.compose-grid{grid-template-columns:70px minmax(0,1fr) 70px;gap:8px}.animal{min-height:88px}.animal svg{width:76px;height:76px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:28px}}
+@media(max-width:480px){.compose-grid{grid-template-columns:1fr}.animal{display:none}.grid{grid-template-columns:1fr}.composer-bottom{align-items:flex-start;flex-direction:column}.send{width:100%}.top{padding:16px 0}}
+</style>
+</head>
+<body>
+<div class="space-cat one" aria-hidden="true">🐈‍⬛</div><div class="space-cat two" aria-hidden="true">🐈</div><div class="space-cat three" aria-hidden="true">🐈‍⬛</div>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">✦ <span>TOGETHER</span> WE'RE STRONGER</div>
+    <select id="language" aria-label="Choose language">
+      <option value="en">English</option><option value="kk">Қазақша</option><option value="ru">Русский</option><option value="es">Español</option><option value="fr">Français</option><option value="tr">Türkçe</option><option value="ko">한국어</option>
+    </select>
+  </header>
+  <section class="hero">
+    <div class="eyebrow" id="eyebrow">A LITTLE KINDNESS GOES A LONG WAY</div>
+    <h1 id="title">A wall full of <span>kindness</span></h1>
+    <p id="subtitle">Leave a kind wish for someone, somewhere. Every little message can make the world feel warmer.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="writeTitle">
+    <div class="composer-head"><h2 id="writeTitle">Write a wish ✨</h2><span class="small" id="publicLabel">PUBLIC WALL</span></div>
+    <div class="compose-grid">
+      <div class="animal" aria-label="Pixel snow leopard">
+        <svg class="leopard" viewBox="0 0 16 16" role="img" aria-label="Pixel snow leopard">
+          <rect x="4" y="3" width="7" height="5" fill="#d9ded2"/><rect x="5" y="2" width="2" height="2" fill="#eef0e8"/><rect x="9" y="2" width="2" height="2" fill="#eef0e8"/>
+          <rect x="3" y="6" width="10" height="5" fill="#c7d0c3"/><rect x="2" y="8" width="3" height="3" fill="#c7d0c3"/><rect x="11" y="8" width="3" height="3" fill="#c7d0c3"/>
+          <rect x="4" y="10" width="2" height="3" fill="#eef0e8"/><rect x="10" y="10" width="2" height="3" fill="#eef0e8"/>
+          <rect x="5" y="5" width="1" height="1" fill="#28332b"/><rect x="10" y="5" width="1" height="1" fill="#28332b"/><rect x="7" y="7" width="2" height="1" fill="#28332b"/>
+          <rect x="6" y="4" width="1" height="1" fill="#59665b"/><rect x="9" y="8" width="1" height="1" fill="#59665b"/><rect x="4" y="8" width="1" height="1" fill="#59665b"/><rect x="11" y="6" width="1" height="1" fill="#59665b"/>
+          <rect x="3" y="12" width="3" height="2" fill="#c7d0c3"/><rect x="10" y="12" width="3" height="2" fill="#c7d0c3"/>
+          <rect x="2" y="10" width="2" height="1" fill="#d9ded2"/><rect x="1" y="9" width="2" height="1" fill="#d9ded2"/>
+        </svg>
+      </div>
+      <div>
+        <textarea id="message" maxlength="500" placeholder="Write something kind… (max. 500 characters)" aria-label="Your wish"></textarea>
+        <div class="composer-bottom">
+          <div class="hint" id="privacyHint">Please don't include names, phone numbers, emails, or home addresses. Wishes are public.</div>
+          <button class="send" id="send">Send wish ✦</button>
+        </div>
+        <div class="notice" id="notice" role="status" aria-live="polite"></div>
+      </div>
+      <div class="animal" aria-label="Pixel golden eagle">
+        <svg class="eagle" viewBox="0 0 16 16" role="img" aria-label="Pixel golden eagle">
+          <rect x="7" y="3" width="2" height="7" fill="#b88736"/><rect x="6" y="2" width="4" height="2" fill="#d8ad52"/>
+          <rect x="2" y="4" width="5" height="2" fill="#8a5a2c"/><rect x="1" y="5" width="5" height="2" fill="#bd873d"/><rect x="2" y="7" width="5" height="2" fill="#d5a34e"/>
+          <rect x="9" y="4" width="5" height="2" fill="#8a5a2c"/><rect x="10" y="5" width="5" height="2" fill="#bd873d"/><rect x="9" y="7" width="5" height="2" fill="#d5a34e"/>
+          <rect x="6" y="5" width="4" height="5" fill="#c99443"/><rect x="7" y="4" width="2" height="2" fill="#f0d47b"/>
+          <rect x="7" y="6" width="1" height="1" fill="#172019"/><rect x="9" y="6" width="1" height="1" fill="#172019"/><rect x="8" y="7" width="2" height="1" fill="#f0c64f"/>
+          <rect x="7" y="10" width="1" height="3" fill="#d7a54a"/><rect x="9" y="10" width="1" height="3" fill="#d7a54a"/>
+          <rect x="5" y="12" width="3" height="1" fill="#e2b94e"/><rect x="9" y="12" width="3" height="1" fill="#e2b94e"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="wall-head"><h2 id="wallTitle">Kindness wall</h2><span class="count" id="count">Loading wishes…</span></div>
+  <section class="grid" id="wall" aria-live="polite"><div class="empty" id="loading">Loading the wall…</div></section>
+  <section class="help-card" aria-labelledby="helpTitle">
+    <div class="help-number">111</div>
+    <div class="help-copy"><h2 id="helpTitle">Көмек керек пе? Сен жалғыз емессің.</h2><p id="helpText">Қазақстанда отбасы, әйелдер мен балалардың құқықтарын қорғау мәселелері бойынша тегін, тәулік бойы кеңес және психологиялық қолдау алуға болады.</p><a href="https://www.gov.kz/situations/677/1457" target="_blank" rel="noopener noreferrer" id="helpLink">Ресми ақпаратты оқу ↗</a></div>
+  </section>
+  <section class="gallery" aria-labelledby="galleryTitle"><h2 id="galleryTitle">Little moments of kindness ✦</h2><div class="gallery-grid">
+    <div class="gallery-slot"><div><span>✧</span>Сурет 1<br>кейін қосылады</div></div><div class="gallery-slot"><div><span>✧</span>Сурет 2<br>кейін қосылады</div></div><div class="gallery-slot"><div><span>✧</span>Сурет 3<br>кейін қосылады</div></div><div class="gallery-slot"><div><span>✧</span>Сурет 4<br>кейін қосылады</div></div><div class="gallery-slot"><div><span>✧</span>Сурет 5<br>кейін қосылады</div></div>
+  </div></section>
+  <footer class="footer" id="footer">A public kindness wall. Be thoughtful, be respectful, and protect your privacy.<br>Made with ✦ for a kinder world.</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* Public project settings. Publishable keys are designed for browser use.
+   Never put a service_role or secret key in this file. */
+const SUPABASE_URL = "https://ttfgqyratrkzhhgymqse.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Ad1nwN4bsku99bsgceGDgg_z9ZyDCHb";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+const copy = {
+ en:{eyebrow:"A LITTLE KINDNESS GOES A LONG WAY",title:'A wall full of <span>kindness</span>',subtitle:"Leave a kind wish for someone, somewhere. Every little message can make the world feel warmer.",write:"Write a wish ✨",public:"PUBLIC WALL",placeholder:"Write something kind… (max. 500 characters)",privacy:"Please don't include names, phone numbers, emails, or home addresses. Wishes are public.",send:"Send wish ✦",wall:"Kindness wall",loading:"Loading wishes…",empty:"No wishes yet. Be the first to leave a little kindness.",count:n=>`${n} wishes`,sent:"Your wish has been posted! ✨",error:"Couldn't post your wish. Please try again.",blank:"Please write a wish first.",limit:"Please keep your wish under 500 characters.",contact:"Please remove contact details or personal information.",footer:"A public kindness wall. Be thoughtful, be respectful, and protect your privacy.",helpTitle:"Need help? You are not alone.",helpText:"In Kazakhstan, free 24/7 advice and psychological support are available for issues involving the rights of families, women and children.",helpLink:"Read official information ↗",galleryTitle:"Little moments of kindness ✦"},
+ kk:{eyebrow:"КІШКЕНТАЙ ЖАҚСЫЛЫҚТЫҢ ӨЗІ ҮЛКЕН ӨЗГЕРІС ӘКЕЛЕДІ",title:'Мейірімділікке толы <span>қабырға</span>',subtitle:"Кез келген жанға жылы тілек қалдыр. Әрбір жақсы сөз әлемді нұрландыра алады.",write:"Тілек жаз ✨",public:"ОРТАҚ ҚАБЫРҒА",placeholder:"Жылы тілегіңді жаз… (500 таңбаға дейін)",privacy:"Атыңды, телефон нөміріңді, email немесе үй мекенжайыңды жазба. Тілектер баршаға көрінеді.",send:"Тілек жібер ✦",wall:"Ізгі тілектер қабырғасы",loading:"Тілектер жүктелуде…",empty:"Әзірге тілек жоқ. Алғашқы жылы тілекті сен қалдыр!",count:n=>`${n} тілек`,sent:"Тілегің жарияланды! ✨",error:"Тілек жіберілмеді. Қайта көр.",blank:"Алдымен тілек жаз.",limit:"Тілек 500 таңбадан аспасын.",contact:"Жеке байланыс мәліметтерін алып таста.",footer:"Ортақ ізгілік қабырғасы. Бір-біріңді құрметтеп, жеке мәліметтеріңді қорға.",helpTitle:"Көмек керек пе? Сен жалғыз емессің.",helpText:"Қазақстанда отбасы, әйелдер мен балалардың құқықтарын қорғау мәселелері бойынша тегін, тәулік бойы кеңес және психологиялық қолдау алуға болады.",helpLink:"Ресми ақпаратты оқу ↗",galleryTitle:"Жақсылықтың кішкентай сәттері ✦"},
+ ru:{eyebrow:"ДАЖЕ МАЛЕНЬКАЯ ДОБРОТА МЕНЯЕТ МИР",title:'Стена, полная <span>доброты</span>',subtitle:"Оставь доброе пожелание кому-нибудь. Каждое тёплое слово делает мир светлее.",write:"Написать пожелание ✨",public:"ОБЩАЯ СТЕНА",placeholder:"Напиши что-нибудь доброе… (до 500 символов)",privacy:"Не указывай имена, телефоны, email или домашние адреса. Пожелания видны всем.",send:"Отправить ✦",wall:"Стена добрых пожеланий",loading:"Загружаем пожелания…",empty:"Пока пожеланий нет. Оставь первое!",count:n=>`${n} пожеланий`,sent:"Пожелание опубликовано! ✨",error:"Не удалось отправить. Попробуй ещё раз.",blank:"Сначала напиши пожелание.",limit:"Максимум 500 символов.",contact:"Удали контактные и личные данные.",footer:"Общая стена доброты. Уважай других и береги личные данные.",helpTitle:"Нужна помощь? Ты не один/одна.",helpText:"В Казахстане можно бесплатно и круглосуточно получить консультацию и психологическую поддержку по вопросам защиты прав семьи, женщин и детей.",helpLink:"Официальная информация ↗",galleryTitle:"Маленькие моменты доброты ✦"},
+ es:{eyebrow:"UN POCO DE AMABILIDAD PUEDE CAMBIAR EL MUNDO",title:'Un muro lleno de <span>bondad</span>',subtitle:"Deja un deseo amable para alguien. Cada mensaje puede hacer el mundo más cálido.",write:"Escribe un deseo ✨",public:"MURO PÚBLICO",placeholder:"Escribe algo amable… (máx. 500 caracteres)",privacy:"No incluyas nombres, teléfonos, correos ni direcciones. Los mensajes son públicos.",send:"Enviar ✦",wall:"Muro de bondad",loading:"Cargando deseos…",empty:"Aún no hay deseos. ¡Deja el primero!",count:n=>`${n} deseos`,sent:"¡Tu deseo se publicó! ✨",error:"No se pudo publicar. Inténtalo de nuevo.",blank:"Escribe un deseo primero.",limit:"Máximo 500 caracteres.",contact:"Elimina los datos personales o de contacto.",footer:"Un muro público de bondad. Respeta a los demás y protege tu privacidad.",helpTitle:"¿Necesitas ayuda? No estás a solas.",helpText:"En Kazajistán hay asesoramiento y apoyo psicológico gratuitos las 24 horas sobre los derechos de las familias, las mujeres y los niños.",helpLink:"Información oficial ↗",galleryTitle:"Pequeños momentos de bondad ✦"},
+ fr:{eyebrow:"UN PEU DE GENTILLESSE PEUT TOUT CHANGER",title:'Un mur rempli de <span>bienveillance</span>',subtitle:"Laisse un souhait gentil à quelqu'un. Chaque message peut rendre le monde plus chaleureux.",write:"Écrire un souhait ✨",public:"MUR PUBLIC",placeholder:"Écris quelque chose de gentil… (500 caractères max.)",privacy:"N'inclus pas de nom, téléphone, e-mail ou adresse. Les messages sont publics.",send:"Envoyer ✦",wall:"Mur de bienveillance",loading:"Chargement…",empty:"Aucun souhait pour le moment. Sois le premier !",count:n=>`${n} souhaits`,sent:"Ton souhait a été publié ! ✨",error:"Impossible de publier. Réessaie.",blank:"Écris d'abord un souhait.",limit:"500 caractères maximum.",contact:"Retire les coordonnées et informations personnelles.",footer:"Un mur public de bienveillance. Respecte les autres et protège ta vie privée.",helpTitle:"Besoin d’aide ? Tu n’es pas seul·e.",helpText:"Au Kazakhstan, des conseils et un soutien psychologique gratuits sont disponibles 24 h/24 concernant les droits des familles, des femmes et des enfants.",helpLink:"Informations officielles ↗",galleryTitle:"Petits moments de gentillesse ✦"},
+ tr:{eyebrow:"KÜÇÜK BİR İYİLİK DÜNYAYI DEĞİŞTİREBİLİR",title:'İyilikle dolu bir <span>duvar</span>',subtitle:"Birine güzel bir dilek bırak. Her küçük mesaj dünyayı daha sıcak yapabilir.",write:"Bir dilek yaz ✨",public:"HERKESE AÇIK",placeholder:"Güzel bir şey yaz… (en fazla 500 karakter)",privacy:"İsim, telefon, e-posta veya ev adresi yazma. Dilekler herkese açıktır.",send:"Gönder ✦",wall:"İyilik duvarı",loading:"Dilekler yükleniyor…",empty:"Henüz dilek yok. İlk dileği sen bırak!",count:n=>`${n} dilek`,sent:"Dileğin yayınlandı! ✨",error:"Gönderilemedi. Tekrar dene.",blank:"Önce bir dilek yaz.",limit:"En fazla 500 karakter.",contact:"Lütfen kişisel iletişim bilgilerini kaldır.",footer:"Herkese açık iyilik duvarı. Saygılı ol ve gizliliğini koru.",helpTitle:"Yardıma mı ihtiyacın var? Yalnız değilsin.",helpText:"Kazakistan’da ailelerin, kadınların ve çocukların haklarının korunmasıyla ilgili ücretsiz, 7/24 danışmanlık ve psikolojik destek alınabilir.",helpLink:"Resmî bilgileri oku ↗",galleryTitle:"Küçük iyilik anları ✦"},
+ ko:{eyebrow:"작은 친절이 세상을 바꿀 수 있어요",title:'친절로 가득한 <span>벽</span>',subtitle:"누군가를 위한 따뜻한 소원을 남겨 보세요. 작은 메시지가 세상을 더 따뜻하게 만들어요.",write:"소원 남기기 ✨",public:"모두에게 공개",placeholder:"따뜻한 말을 적어 보세요… (최대 500자)",privacy:"이름, 전화번호, 이메일, 집 주소를 쓰지 마세요. 메시지는 모두에게 공개됩니다.",send:"소원 보내기 ✦",wall:"친절의 벽",loading:"소원을 불러오는 중…",empty:"아직 소원이 없어요. 첫 번째 메시지를 남겨 보세요!",count:n=>`소원 ${n}개`,sent:"소원이 게시되었어요! ✨",error:"게시하지 못했어요. 다시 시도해 주세요.",blank:"먼저 소원을 적어 주세요.",limit:"500자 이하로 작성해 주세요.",contact:"연락처나 개인정보를 삭제해 주세요.",footer:"모두에게 공개되는 친절의 벽입니다. 서로 존중하고 개인정보를 보호해 주세요.",helpTitle:"도움이 필요하신가요? 혼자가 아니에요.",helpText:"카자흐스탄에서는 가족, 여성, 아동의 권리 보호와 관련해 무료 24시간 상담 및 심리 지원을 받을 수 있습니다.",helpLink:"공식 정보 보기 ↗",galleryTitle:"작은 친절의 순간 ✦"}
+};
+let lang="en", wishes=[];
+const $=id=>document.getElementById(id);
+function getVisitorId(){
+ try{let id=localStorage.getItem("tws_visitor_id");if(!id){id=(crypto.randomUUID?crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,c=>{const r=Math.random()*16|0;return(c==="x"?r:(r&3|8)).toString(16)}));localStorage.setItem("tws_visitor_id",id)}return id}
+ catch(e){return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,c=>{const r=Math.random()*16|0;return(c==="x"?r:(r&3|8)).toString(16)})}
+}
+const visitorId=getVisitorId();
+let likeCounts={}, myLikes=new Set();
+function t(){return copy[lang]||copy.en}
+function applyLanguage(){
+ const c=t(); $("eyebrow").textContent=c.eyebrow; $("title").innerHTML=c.title; $("subtitle").textContent=c.subtitle;
+ $("writeTitle").textContent=c.write; $("publicLabel").textContent=c.public; $("message").placeholder=c.placeholder; $("message").setAttribute("aria-label",c.write);
+ $("privacyHint").textContent=c.privacy; $("send").textContent=c.send; $("wallTitle").textContent=c.wall; $("footer").textContent=c.footer; $("helpTitle").textContent=c.helpTitle; $("helpText").textContent=c.helpText; $("helpLink").textContent=c.helpLink; $("galleryTitle").textContent=c.galleryTitle; renderWall();
+}
+$("language").addEventListener("change",e=>{lang=e.target.value;applyLanguage()});
+function safeContactCheck(s){
+ const email=/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i;
+ const phone=/(?:\+?\d[\d\s().-]{7,}\d)/;
+ const url=/(https?:\/\/|www\.)\S+/i;
+ return email.test(s)||phone.test(s)||url.test(s);
+}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function renderWall(){
+ const wall=$("wall"), c=t(); wall.innerHTML="";
+ if(!wishes.length){wall.innerHTML=`<div class="empty">${c.empty}</div>`;$("count").textContent=c.count(0);return}
+ $("count").textContent=c.count(wishes.length);
+ wishes.forEach((w,i)=>{
+  const card=document.createElement("article");card.className="wish";card.style.animationDelay=`${Math.min(i,8)*45}ms`;
+  const p=document.createElement("p");p.textContent=w.message;
+  const foot=document.createElement("div");foot.className="wish-foot";
+  const date=document.createElement("span");date.textContent=w.created_at?new Date(w.created_at).toLocaleDateString():"";
+  const liked=myLikes.has(String(w.id));const count=likeCounts[String(w.id)]||0;
+  const heart=document.createElement("button");heart.className="heart"+(liked?" liked":"");heart.type="button";heart.setAttribute("aria-label",liked?"Unlike this wish":"Like this wish");heart.setAttribute("aria-pressed",String(liked));heart.innerHTML=`${liked?"♥":"♡"} <span class="like-count">${count}</span>`;
+  heart.addEventListener("click",async()=>{
+   if(heart.disabled)return;heart.disabled=true;
+   const {data,error}=await supabaseClient.rpc("toggle_wish_like",{p_wish_id:w.id,p_visitor_id:visitorId});
+   heart.disabled=false;
+   if(error){heart.title="Like could not be saved. Please try again.";return}
+   const result=Array.isArray(data)?data[0]:data;if(!result)return;
+   likeCounts[String(w.id)]=Number(result.like_count)||0;
+   if(result.liked)myLikes.add(String(w.id));else myLikes.delete(String(w.id));
+   renderWall();
+  });
+  foot.append(date,heart);card.append(p,foot);wall.append(card);
+ });
+}
+async function loadLikes(){
+ if(!wishes.length)return;
+ const ids=wishes.map(w=>w.id);
+ const [allResult,mineResult]=await Promise.all([
+  supabaseClient.from("wish_likes").select("wish_id").in("wish_id",ids),
+  supabaseClient.from("wish_likes").select("wish_id").eq("visitor_id",visitorId).in("wish_id",ids)
+ ]);
+ if(allResult.error||mineResult.error)return;
+ likeCounts={};myLikes=new Set();
+ (allResult.data||[]).forEach(row=>{const id=String(row.wish_id);likeCounts[id]=(likeCounts[id]||0)+1});
+ (mineResult.data||[]).forEach(row=>myLikes.add(String(row.wish_id)));
+ renderWall();
+}
+function playBubbleSound(){
+ try{const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return;const ctx=new Ctx();
+  [[620,0],[880,.12]].forEach(([freq,delay])=>{const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type="sine";osc.frequency.setValueAtTime(freq,ctx.currentTime+delay);osc.frequency.exponentialRampToValueAtTime(freq*1.35,ctx.currentTime+delay+.09);gain.gain.setValueAtTime(.0001,ctx.currentTime+delay);gain.gain.exponentialRampToValueAtTime(.07,ctx.currentTime+delay+.025);gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+delay+.16);osc.connect(gain);gain.connect(ctx.destination);osc.start(ctx.currentTime+delay);osc.stop(ctx.currentTime+delay+.17)});
+  setTimeout(()=>ctx.close(),500);
+ }catch(e){}
+}
+async function loadWishes(){
+ $("wall").innerHTML=`<div class="empty">${t().loading}</div>`;
+ const {data,error}=await supabaseClient.from("wishes").select("id,created_at,message,language").order("created_at",{ascending:false}).limit(100);
+ if(error){$("wall").innerHTML='<div class="empty">Could not load the wall. Check your Supabase table and policies.</div>';return}
+ wishes=data||[];renderWall();await loadLikes();
+}
+$("send").addEventListener("click",async()=>{
+ const message=$("message").value.trim(), c=t(), btn=$("send");
+ $("notice").textContent="";
+ if(!message){$("notice").textContent=c.blank;return}
+ if(message.length>500){$("notice").textContent=c.limit;return}
+ if(safeContactCheck(message)){ $("notice").textContent=c.contact;return}
+ btn.disabled=true;
+ const {data,error}=await supabaseClient.from("wishes").insert({message,language:lang}).select("id,created_at,message,language").single();
+ btn.disabled=false;
+ if(error){$("notice").textContent=c.error;return}
+ $("message").value="";$("notice").textContent=c.sent;playBubbleSound();
+ if(data){wishes.unshift(data);likeCounts[String(data.id)]=0;renderWall()}
+});
+supabaseClient.channel("public-wishes")
+ .on("postgres_changes",{event:"INSERT",schema:"public",table:"wishes"},payload=>{
+   if(payload.new && !wishes.some(w=>w.id===payload.new.id)){wishes.unshift(payload.new);wishes=wishes.slice(0,100);renderWall()}
+ }).subscribe();
+applyLanguage();loadWishes();
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Together We're Stronger — Wall of Kindness</title>
+<meta name="theme-color" content="#101312">
+<style>
+:root{--bg:#101312;--panel:#191f1c;--panel2:#202923;--line:#344239;--text:#f2f5ef;--muted:#aab8ad;--gold:#f1d27a;--green:#a9d6a0;--mint:#d8f1d1;--danger:#ffaaa3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#344538 0%,#18211b 38%,var(--bg) 75%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.28;background-image:radial-gradient(#f5e6a4 1px,transparent 1px),radial-gradient(#d8f1d1 1px,transparent 1px);background-size:91px 91px,137px 137px;background-position:0 0,42px 57px;animation:drift 28s linear infinite}
+@keyframes drift{to{background-position:91px 91px,179px 194px}}
+.wrap{width:min(1040px,calc(100% - 32px));margin:auto;position:relative}.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:16px}.brand{font-weight:850;letter-spacing:.08em;font-size:13px;color:var(--mint)}.brand span{color:var(--gold)}select{background:#202923;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit}
+.hero{text-align:center;padding:42px 0 24px}.eyebrow{color:var(--gold);font-size:12px;letter-spacing:.22em;text-transform:uppercase}.hero h1{font-size:clamp(34px,7vw,66px);line-height:1.04;letter-spacing:-.045em;margin:14px 0 12px}.hero h1 span{color:var(--green)}.hero p{color:var(--muted);font-size:16px;max-width:570px;margin:0 auto;line-height:1.7}
+.panel{background:linear-gradient(145deg,rgba(32,41,35,.96),rgba(22,29,25,.96));border:1px solid var(--line);border-radius:24px;box-shadow:0 18px 55px #0005;padding:clamp(18px,4vw,30px);margin:26px 0}
+.composer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.composer-head h2{font-size:19px;margin:0}.small{font-size:12px;color:var(--muted)}
+.compose-grid{display:grid;grid-template-columns:118px minmax(0,1fr) 118px;gap:16px;align-items:end}.animal{display:flex;align-items:center;justify-content:center;min-height:120px}.animal svg{width:112px;height:112px;image-rendering:pixelated;filter:drop-shadow(0 8px 8px #0008)}.leopard{animation:prowl 3.2s ease-in-out infinite}.eagle{animation:float 2.8s ease-in-out infinite;transform-origin:50% 60%}@keyframes float{50%{transform:translateY(-7px) rotate(-2deg)}}@keyframes prowl{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+textarea{width:100%;min-height:128px;resize:vertical;background:#111815;border:1px solid #435449;border-radius:16px;padding:16px;color:var(--text);font:inherit;line-height:1.6;outline:none}textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #a9d6a022}textarea::placeholder{color:#7f9184}.composer-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}.hint{font-size:12px;color:var(--muted);line-height:1.5}.send{border:0;border-radius:13px;padding:12px 18px;background:linear-gradient(135deg,#d8edc9,#a8d19d);color:#172118;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 5px 18px #a9d6a033;transition:transform .18s,filter .18s}.send:hover{transform:translateY(-2px);filter:brightness(1.06)}.send:disabled{opacity:.55;cursor:wait;transform:none}
+.notice{min-height:22px;margin-top:10px;font-size:13px;color:var(--gold)}.wall-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:34px 0 16px}.wall-head h2{margin:0;font-size:24px}.count{font-size:12px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding-bottom:70px}.wish{background:linear-gradient(145deg,#222c25,#19211c);border:1px solid #344239;border-radius:18px;padding:18px;min-height:145px;position:relative;overflow:hidden;animation:appear .45s ease both}.wish:before{content:"✦";position:absolute;right:15px;top:9px;color:#e8d58b66;font-size:18px}.wish p{margin:0 0 20px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;font-size:15px}.wish-foot{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:11px}.heart{border:1px solid #536253;background:#18211c;color:#f4b4bd;border-radius:20px;padding:5px 9px;cursor:pointer;font-size:14px;transition:transform .2s}.heart.pop{animation:heartpop .48s ease}@keyframes heartpop{35%{transform:scale(1.5)}70%{transform:scale(.88)}100%{transform:scale(1)}}@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:35px 10px;border:1px dashed #455449;border-radius:18px}.footer{text-align:center;color:#849187;font-size:12px;padding:10px 0 34px;line-height:1.7}
 @media(max-width:700px){.compose-grid{grid-template-columns:70px minmax(0,1fr) 70px;gap:8px}.animal{min-height:88px}.animal svg{width:76px;height:76px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:28px}}
 @media(max-width:480px){.compose-grid{grid-template-columns:1fr}.animal{display:none}.grid{grid-template-columns:1fr}.composer-bottom{align-items:flex-start;flex-direction:column}.send{width:100%}.top{padding:16px 0}}
 </style>
